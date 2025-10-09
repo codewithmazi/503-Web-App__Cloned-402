@@ -1,38 +1,62 @@
-import React from "react";
-import { crop } from "../../types/Crop";
+import React, { useEffect, useState } from "react";
+import cropsService from "../../services/cropsService";
+import { Crop } from "../../types/Crop";
+import { Link } from "react-router-dom";
 
-interface CropsProps {
-  crops: crop[];
-}
+export default function Crops() {
 
-const Crops: React.FC<CropsProps> = ({ crops }) => {
-  return (
-    <div className="columns is-multiline is-centered">
-      {crops.map((cropItem) => (
-        <div key={cropItem.batch_id} className="column is-one-third">
-          <div className="card shadow hover-shadow">
-            <div className="card-content">
-              <h3 className="title is-4">{cropItem.species}</h3>
-              <p>Batch ID: {cropItem.batch_id}</p>
-              <p>Status: {cropItem.status}</p>
-              <p>Planted: {cropItem.planting_date.toString()}</p>
-              <p>Nutrient Formula: {cropItem.nutrient_formula}</p>
-              <div>
-                <strong>Sensor Readings:</strong>
-                <ul>
-                  <li>Timestamp: {cropItem.sensor_readings.timestamp.toString()}</li>
-                  <li>Temperature: {cropItem.sensor_readings.temperature_c}°C</li>
-                  <li>Humidity: {cropItem.sensor_readings.humidity_percent}%</li>
-                  <li>pH: {cropItem.sensor_readings.ph}</li>
-                  <li>CO₂ ppm: {cropItem.sensor_readings.co2_ppm}</li>
-                </ul>
-              </div>
+    const [crops, setCrops] = useState<Crop[]>([]);
+
+    const getCrops = () => {
+        cropsService.getAll()
+            .then((response: any) => {
+                setCrops(response.data);
+                console.log(response.data);
+            })
+            .catch((e: Error) => {
+                console.log(e);
+                alert(e.message);
+            });
+    }
+
+    useEffect(() => {
+        getCrops();
+    }, []);
+
+    return (
+        <div className="container is-fluid">
+            <section className="section">
+                <h1 className="title">Crop Catalogue</h1>
+            </section>
+            <div className="columns is-multiline">
+                {
+                    crops.map((crop, index) => (
+                        <div className="column" key={index}>
+                            <div className="card">
+                                <div className="card-header">
+                                    <h2 className="card-header-title">Batch: {crop.batch_id}</h2>
+                                </div>
+                                <div className="card-content">
+                                    <p className="content"><strong>Species:</strong> {crop.species}</p>
+                                    <p className="content"><strong>Status:</strong> {crop.status}</p>
+                                    <p className="content"><strong>Planting Date:</strong> {String(crop.planting_date)}</p>
+                                    <p className="content"><strong>Nutrient Formula:</strong> {crop.nutrient_formula}</p>
+                                    <hr/>
+                                    <p className="content" style={{ fontWeight: "bold" }}>Sensor Readings:</p>
+                                    <p className="content"><strong>Timestamp:</strong> {String(crop.sensor_readings.timestamp)}</p>
+                                    <p className="content"><strong>Temperature (°C):</strong> {crop.sensor_readings.temperature_c}</p>
+                                    <p className="content"><strong>Humidity (%):</strong> {crop.sensor_readings.humidity_percent}</p>
+                                    <p className="content"><strong>pH:</strong> {crop.sensor_readings.ph}</p>
+                                    <p className="content"><strong>CO₂ (ppm):</strong> {crop.sensor_readings.co2_ppm}</p>
+                                </div>
+                                <div className="card-footer">
+                                    <Link className="button is-rounded is-danger" to={`/crops/${crop.batch_id}`}>View Crop</Link>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
-          </div>
         </div>
-      ))}
-    </div>
-  );
-};
-
-export default Crops;
+    );
+}

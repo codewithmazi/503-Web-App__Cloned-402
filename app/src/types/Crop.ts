@@ -1,4 +1,4 @@
-export type crop = {
+export type Crop = {
   batch_id: string,
   species: string,
   planting_date: Date,
