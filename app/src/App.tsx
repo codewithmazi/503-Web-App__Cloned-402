@@ -13,6 +13,7 @@ import About from './components/layout/about';
 import MovieDetail from "./components/layout/MovieDetail";
 import MoviesPage from './components/layout/MoviesPage';
 import Movies from './components/layout/Movies';
+import Crops from './components/layout/Crops';
 import MovieAdmin from './components/layout/MovieAdmin';
 import TVShowsPage from './components/layout/TvshowsPage';
 import TVShowAdmin from './components/layout/TvshowAdmin';
@@ -33,6 +34,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/movies" element={<MoviesPage />} />
+            <Route path="/crops" element={<Crops />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/mvadmin" element={<MovieAdmin />} />
             <Route path="/tvshows" element={<TVShowsPage />} />
