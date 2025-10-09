@@ -1,0 +1,198 @@
+@import 'bulma/css/bulma.css';
+@import '@aws-amplify/ui-react/styles.css';
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+
+
+
+.home-background {
+  background-image: url('https://wallpapers.com/images/featured/movie-9pvmdtvz4cb0xl37.jpg');
+  background-size: cover; /* Ensure the image covers the entire background */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  height: 100vh; /* Make the background cover the full height of the page */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Container for text and buttons */
+.hero-body {
+  position: relative;
+  z-index: 1; /* Ensures content appears above the video */
+  color: white;
+  text-align: center;
+}
+
+
+
+  
+
+  .movie-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animation */
+    cursor: pointer; /* Show pointer on hover */
+  }
+  
+  .movie-card:hover {
+    transform: translateY(-10px); /* Lifts the card slightly on hover */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+  }
+  
+  .movie-poster {
+    object-fit: cover; /* Ensures the image scales properly */
+    border-radius: 8px; /* Optional: Rounded corners */
+  }
+  
+  .card-header-title {
+    font-weight: bold;
+    color: #363636;
+    text-align: center;
+  }
+  
+  .card {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+
+
+
+
+  /* Skeleton Loading Styles */
+.skeleton {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  color: transparent;
+}
+
+.loading::before {
+  content: "\00a0"; /* Non-breaking space for loading effect */
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* For specific elements */
+.image.loading {
+  height: 200px;
+}
+.title.loading {
+  height: 24px;
+  width: 70%;
+  margin-bottom: 1rem;
+}
+.content.loading {
+  height: 16px;
+  margin: 0.5rem 0;
+  width: 90%;
+}
+
+
+
+
+/* General Page Styles */
+.movie-detail-container {
+  font-family: 'Arial', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header Styles */
+.movie-detail-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.movie-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.movie-year {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.movie-description {
+  font-size: 1rem;
+  color: #444;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* Video Styles */
+.movie-video {
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+iframe {
+  border: none;
+}
+
+/* Loading and No Video Messages */
+.loading, .no-video {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .movie-title {
+    font-size: 1.5rem;
+  }
+
+  .movie-video iframe {
+    width: 100%; /* Full width of the parent container */
+    height: 500px; /* Adjust this to make the video taller */
+    max-width: 900px; /* Optional: Cap the maximum width */
+    margin: 0 auto; /* Center-align the video */
+    display: block; /* Ensure it's a block element */
+  }
+  
+}
+
+  
+
+
+
+
+
+  
