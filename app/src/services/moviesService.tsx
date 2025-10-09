@@ -3,7 +3,7 @@ import { Movies } from '../types/Movie'; // Import the TypeScript type for Movie
 import { fetchAuthSession } from 'aws-amplify/auth'; // Import function to fetch authentication session from AWS Amplify.
 
 // Base URL for the API
-const API_BASE_URL = "https://v4mqw4wyt0.execute-api.us-east-1.amazonaws.com";
+const API_BASE_URL = "https://s8ux4vvov0.execute-api.us-east-1.amazonaws.com/prod";
 
 /**
  * Fetches the list of movies from the API without requiring authentication.

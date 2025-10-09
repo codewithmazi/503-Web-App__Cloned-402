@@ -8,7 +8,7 @@ import { Tvshows } from '../types/Tvshow';
 import { fetchAuthSession } from 'aws-amplify/auth';
 
 // Base URL for the API to interact with TV shows.
-const API_BASE_URL = "https://v4mqw4wyt0.execute-api.us-east-1.amazonaws.com";
+const API_BASE_URL = "https://s8ux4vvov0.execute-api.us-east-1.amazonaws.com/prod";
 
 /**
  * Fetches all TV shows from the API without requiring authentication.
