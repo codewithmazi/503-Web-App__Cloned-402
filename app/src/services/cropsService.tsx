@@ -48,7 +48,7 @@ const cropService = {
  // getCropById, // Publicly expose `getMovieById` function.
   getCrops,    // Publicly expose `getMovies` function.
  // get,          // Publicly expose `get` function.
- // getAll,       // Publicly expose `getAll` function.
+  getAll,       // Publicly expose `getAll` function.
  // remove,       // Publicly expose `remove` function.
  // put,          // Publicly expose `put` function.
 };
