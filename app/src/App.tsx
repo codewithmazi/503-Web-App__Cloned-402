@@ -14,6 +14,8 @@ import MovieDetail from "./components/layout/MovieDetail";
 import MoviesPage from './components/layout/MoviesPage';
 import Movies from './components/layout/Movies';
 import Crops from './components/layout/Crops';
+import Staff from './components/layout/Staff';
+import Operations from './components/layout/Operations';
 import MovieAdmin from './components/layout/MovieAdmin';
 import TVShowsPage from './components/layout/TvshowsPage';
 import TVShowAdmin from './components/layout/TvshowAdmin';
@@ -35,6 +37,8 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/movies" element={<MoviesPage />} />
             <Route path="/crops" element={<Crops />} />
+            <Route path="/staff" element={<Staff />} />
+            <Route path="/ops" element={<Operations />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/mvadmin" element={<MovieAdmin />} />
             <Route path="/tvshows" element={<TVShowsPage />} />

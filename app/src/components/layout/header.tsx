@@ -26,6 +26,8 @@ const Header: React.FC = () => {
           <Link to="/" className="navbar-item has-text-grey-dark is-size-5">Home</Link>
           <Link to="/movies" className="navbar-item has-text-grey-dark is-size-5">Movies</Link>
           <Link to="/crops" className="navbar-item has-text-grey-dark is-size-5">Crops</Link>
+          <Link to="/staff" className="navbar-item has-text-grey-dark is-size-5">Staff</Link>
+          <Link to="/ops" className="navbar-item has-text-grey-dark is-size-5">Ops</Link>
           <Link to="/tvshows" className="navbar-item has-text-grey-dark is-size-5">TV Shows</Link>
           <Link to="/admin" className="navbar-item has-text-grey-dark is-size-5">Admin</Link>
         </div>
